@@ -91,33 +91,26 @@ python tests/test_suite.py
 
 ## 🖥️ Sample Interactions
 
-### Example 1 — Valid guess, correct hint direction
-```
-Input:  Guess 60 (secret is 42)
-Output: "📉 Go LOWER!"
-Log:    [INFO] Guess 60 too high (secret 42).
-```
+### Example 1 — Out-of-range input rejected (no attempt cost)
+Input `150` in Normal mode — the guardrail rejects it and attempts stay at 8.
 
-### Example 2 — Out-of-range input rejected (no attempt cost)
-```
-Input:  "150" (Normal mode, range 1-100)
-Output: "Number out of range! Guess between 1 and 100."
-Log:    [WARNING] Out-of-range guess 150 (allowed 1-100) — rejected without costing an attempt.
-Attempts remaining: unchanged
-```
+![Out-of-range input rejected](assets/demo-out-of-range.png)
 
-### Example 3 — Test harness summary output
-```
-─── check_guess ───
-  [PASS] Exact match returns Win
-  [PASS] Guess above secret → Too High
-  [PASS] Guess below secret → Too Low
-  ...
+### Example 2 — Non-numeric input rejected
+Input `abc` — rejected immediately with no attempt cost.
 
-─────────────────────────────────────────
-  RESULTS: 30/30 passed (100%)  ✅
-─────────────────────────────────────────
-```
+![Invalid input rejected](assets/demo-invalid-input.png)
+
+### Example 3 — Winning guess
+Secret was 68, guess 60 entered — "Correct!" with final score 80. Debug panel shows the prior invalid inputs (150, abc) in history but neither cost an attempt.
+
+![Correct guess and win screen](assets/demo-correct-guess.png)
+
+### Example 4 — Reliability test harness (37/37 passed)
+![Test harness 37/37](assets/demo-test-harness.png)
+
+### Example 5 — Pytest unit tests (11/11 passed)
+![Pytest 11 passed](assets/demo-pytest.png)
 
 ---
 
