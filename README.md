@@ -7,7 +7,7 @@
 ## 🎬 Demo Walkthrough
 
 <!-- TODO: Replace this with your Loom link before submitting -->
-🎥 **[Loom Walkthrough — ADD YOUR LINK HERE](https://loom.com)**
+🎥 **[Video Walkthrough (YouTube)](https://youtu.be/tvkv6CSlZxU)**
 
 ---
 
